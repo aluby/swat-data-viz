@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Customizing your ggplots</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.5/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Customizing your ggplots
+
+---
+
+class: center, middle
+
+
+
+
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+*earn
+```
+]
+ 
+.panel2-clean-data-auto[
+
+```
+## # A tibble: 4,224 x 8
+##    sex     race   ethnic_origin age      year quarter n_persons median_weekly_e…
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Both S… All R… All Origins   16 yea…  2010       1  96821000              754
+##  2 Both S… All R… All Origins   16 yea…  2010       2  99798000              740
+##  3 Both S… All R… All Origins   16 yea…  2010       3 101385000              740
+##  4 Both S… All R… All Origins   16 yea…  2010       4 100120000              752
+##  5 Both S… All R… All Origins   16 yea…  2011       1  98329000              755
+##  6 Both S… All R… All Origins   16 yea…  2011       2 100593000              753
+##  7 Both S… All R… All Origins   16 yea…  2011       3 101447000              753
+##  8 Both S… All R… All Origins   16 yea…  2011       4 101458000              764
+##  9 Both S… All R… All Origins   16 yea…  2012       1 100830000              769
+## 10 Both S… All R… All Origins   16 yea…  2012       2 102769000              771
+## # … with 4,214 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+earn %&gt;%
+* mutate(median_yearly = median_weekly_earn * 52)
+```
+]
+ 
+.panel2-clean-data-auto[
+
+```
+## # A tibble: 4,224 x 9
+##    sex     race   ethnic_origin age      year quarter n_persons median_weekly_e…
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Both S… All R… All Origins   16 yea…  2010       1  96821000              754
+##  2 Both S… All R… All Origins   16 yea…  2010       2  99798000              740
+##  3 Both S… All R… All Origins   16 yea…  2010       3 101385000              740
+##  4 Both S… All R… All Origins   16 yea…  2010       4 100120000              752
+##  5 Both S… All R… All Origins   16 yea…  2011       1  98329000              755
+##  6 Both S… All R… All Origins   16 yea…  2011       2 100593000              753
+##  7 Both S… All R… All Origins   16 yea…  2011       3 101447000              753
+##  8 Both S… All R… All Origins   16 yea…  2011       4 101458000              764
+##  9 Both S… All R… All Origins   16 yea…  2012       1 100830000              769
+## 10 Both S… All R… All Origins   16 yea…  2012       2 102769000              771
+## # … with 4,214 more rows, and 1 more variable: median_yearly &lt;dbl&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+earn %&gt;%
+  mutate(median_yearly = median_weekly_earn * 52) %&gt;%
+* filter(race != "All Races")
+```
+]
+ 
+.panel2-clean-data-auto[
+
+```
+## # A tibble: 1,980 x 9
+##    sex     race  ethnic_origin age       year quarter n_persons median_weekly_e…
+##    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Both S… White All Origins   16 year…  2010       1  78418000              772
+##  2 Both S… White All Origins   16 year…  2010       2  80890000              756
+##  3 Both S… White All Origins   16 year…  2010       3  82280000              759
+##  4 Both S… White All Origins   16 year…  2010       4  81038000              772
+##  5 Both S… White All Origins   16 year…  2011       1  79349000              774
+##  6 Both S… White All Origins   16 year…  2011       2  81516000              770
+##  7 Both S… White All Origins   16 year…  2011       3  82357000              772
+##  8 Both S… White All Origins   16 year…  2011       4  82124000              786
+##  9 Both S… White All Origins   16 year…  2012       1  80278000              793
+## 10 Both S… White All Origins   16 year…  2012       2  82045000              792
+## # … with 1,970 more rows, and 1 more variable: median_yearly &lt;dbl&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+earn %&gt;%
+  mutate(median_yearly = median_weekly_earn * 52) %&gt;%
+  filter(race != "All Races") %&gt;%
+* filter(sex != "Both Sexes")
+```
+]
+ 
+.panel2-clean-data-auto[
+
+```
+## # A tibble: 1,320 x 9
+##    sex   race  ethnic_origin age         year quarter n_persons median_weekly_e…
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Men   White All Origins   16 years …  2010       1  44040000              869
+##  2 Men   White All Origins   16 years …  2010       2  45771000              838
+##  3 Men   White All Origins   16 years …  2010       3  47013000              839
+##  4 Men   White All Origins   16 years …  2010       4  45917000              857
+##  5 Men   White All Origins   16 years …  2011       1  44712000              856
+##  6 Men   White All Origins   16 years …  2011       2  46572000              850
+##  7 Men   White All Origins   16 years …  2011       3  47275000              847
+##  8 Men   White All Origins   16 years …  2011       4  46881000              871
+##  9 Men   White All Origins   16 years …  2012       1  45755000              874
+## 10 Men   White All Origins   16 years …  2012       2  46765000              891
+## # … with 1,310 more rows, and 1 more variable: median_yearly &lt;dbl&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+earn %&gt;%
+  mutate(median_yearly = median_weekly_earn * 52) %&gt;%
+  filter(race != "All Races") %&gt;%
+  filter(sex != "Both Sexes") %&gt;%
+* group_by(race, sex, year, quarter)
+```
+]
+ 
+.panel2-clean-data-auto[
+
+```
+## # A tibble: 1,320 x 9
+## # Groups:   race, sex, year, quarter [264]
+##    sex   race  ethnic_origin age         year quarter n_persons median_weekly_e…
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Men   White All Origins   16 years …  2010       1  44040000              869
+##  2 Men   White All Origins   16 years …  2010       2  45771000              838
+##  3 Men   White All Origins   16 years …  2010       3  47013000              839
+##  4 Men   White All Origins   16 years …  2010       4  45917000              857
+##  5 Men   White All Origins   16 years …  2011       1  44712000              856
+##  6 Men   White All Origins   16 years …  2011       2  46572000              850
+##  7 Men   White All Origins   16 years …  2011       3  47275000              847
+##  8 Men   White All Origins   16 years …  2011       4  46881000              871
+##  9 Men   White All Origins   16 years …  2012       1  45755000              874
+## 10 Men   White All Origins   16 years …  2012       2  46765000              891
+## # … with 1,310 more rows, and 1 more variable: median_yearly &lt;dbl&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+earn %&gt;%
+  mutate(median_yearly = median_weekly_earn * 52) %&gt;%
+  filter(race != "All Races") %&gt;%
+  filter(sex != "Both Sexes") %&gt;%
+  group_by(race, sex, year, quarter) %&gt;%
+* summarize(
+*   median_salary = median(median_yearly)
+* )
+```
+]
+ 
+.panel2-clean-data-auto[
+
+```
+## # A tibble: 264 x 5
+## # Groups:   race, sex, year [66]
+##    race  sex    year quarter median_salary
+##    &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Asian Men    2010       1         48880
+##  2 Asian Men    2010       2         46852
+##  3 Asian Men    2010       3         50076
+##  4 Asian Men    2010       4         49244
+##  5 Asian Men    2011       1         49296
+##  6 Asian Men    2011       2         50544
+##  7 Asian Men    2011       3         52780
+##  8 Asian Men    2011       4         49920
+##  9 Asian Men    2012       1         53404
+## 10 Asian Men    2012       2         56784
+## # … with 254 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+earn %&gt;%
+  mutate(median_yearly = median_weekly_earn * 52) %&gt;%
+  filter(race != "All Races") %&gt;%
+  filter(sex != "Both Sexes") %&gt;%
+  group_by(race, sex, year, quarter) %&gt;%
+  summarize(
+    median_salary = median(median_yearly)
+  ) %&gt;%
+* pivot_wider(id_cols = c("race", "year", "quarter"), names_from = sex, values_from = median_salary)
+```
+]
+ 
+.panel2-clean-data-auto[
+
+```
+## # A tibble: 132 x 5
+## # Groups:   race, year [33]
+##    race   year quarter   Men Women
+##    &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 Asian  2010       1 48880 40716
+##  2 Asian  2010       2 46852 44408
+##  3 Asian  2010       3 50076 40196
+##  4 Asian  2010       4 49244 37388
+##  5 Asian  2011       1 49296 39624
+##  6 Asian  2011       2 50544 38896
+##  7 Asian  2011       3 52780 37024
+##  8 Asian  2011       4 49920 40092
+##  9 Asian  2012       1 53404 43160
+## 10 Asian  2012       2 56784 40092
+## # … with 122 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+earn %&gt;%
+  mutate(median_yearly = median_weekly_earn * 52) %&gt;%
+  filter(race != "All Races") %&gt;%
+  filter(sex != "Both Sexes") %&gt;%
+  group_by(race, sex, year, quarter) %&gt;%
+  summarize(
+    median_salary = median(median_yearly)
+  ) %&gt;%
+  pivot_wider(id_cols = c("race", "year", "quarter"), names_from = sex, values_from = median_salary) %&gt;%
+* group_by(race)
+```
+]
+ 
+.panel2-clean-data-auto[
+
+```
+## # A tibble: 132 x 5
+## # Groups:   race [3]
+##    race   year quarter   Men Women
+##    &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 Asian  2010       1 48880 40716
+##  2 Asian  2010       2 46852 44408
+##  3 Asian  2010       3 50076 40196
+##  4 Asian  2010       4 49244 37388
+##  5 Asian  2011       1 49296 39624
+##  6 Asian  2011       2 50544 38896
+##  7 Asian  2011       3 52780 37024
+##  8 Asian  2011       4 49920 40092
+##  9 Asian  2012       1 53404 43160
+## 10 Asian  2012       2 56784 40092
+## # … with 122 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+earn %&gt;%
+  mutate(median_yearly = median_weekly_earn * 52) %&gt;%
+  filter(race != "All Races") %&gt;%
+  filter(sex != "Both Sexes") %&gt;%
+  group_by(race, sex, year, quarter) %&gt;%
+  summarize(
+    median_salary = median(median_yearly)
+  ) %&gt;%
+  pivot_wider(id_cols = c("race", "year", "quarter"), names_from = sex, values_from = median_salary) %&gt;%
+  group_by(race) %&gt;%
+* mutate(
+*   time = paste(year, quarter, sep = "-Q"),
+*   men_dev = Men - (Men + Women)/2,
+*   women_dev = Women - (Men + Women)/2,
+*   race = factor(race, levels = c("Asian", "White", "Black or African American"))
+* )
+```
+]
+ 
+.panel2-clean-data-auto[
+
+```
+## # A tibble: 132 x 8
+## # Groups:   race [3]
+##    race   year quarter   Men Women time    men_dev women_dev
+##    &lt;fct&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Asian  2010       1 48880 40716 2010-Q1    4082     -4082
+##  2 Asian  2010       2 46852 44408 2010-Q2    1222     -1222
+##  3 Asian  2010       3 50076 40196 2010-Q3    4940     -4940
+##  4 Asian  2010       4 49244 37388 2010-Q4    5928     -5928
+##  5 Asian  2011       1 49296 39624 2011-Q1    4836     -4836
+##  6 Asian  2011       2 50544 38896 2011-Q2    5824     -5824
+##  7 Asian  2011       3 52780 37024 2011-Q3    7878     -7878
+##  8 Asian  2011       4 49920 40092 2011-Q4    4914     -4914
+##  9 Asian  2012       1 53404 43160 2012-Q1    5122     -5122
+## 10 Asian  2012       2 56784 40092 2012-Q2    8346     -8346
+## # … with 122 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-clean-data-auto[
+
+```r
+earn %&gt;%
+  mutate(median_yearly = median_weekly_earn * 52) %&gt;%
+  filter(race != "All Races") %&gt;%
+  filter(sex != "Both Sexes") %&gt;%
+  group_by(race, sex, year, quarter) %&gt;%
+  summarize(
+    median_salary = median(median_yearly)
+  ) %&gt;%
+  pivot_wider(id_cols = c("race", "year", "quarter"), names_from = sex, values_from = median_salary) %&gt;%
+  group_by(race) %&gt;%
+  mutate(
+    time = paste(year, quarter, sep = "-Q"),
+    men_dev = Men - (Men + Women)/2,
+    women_dev = Women - (Men + Women)/2,
+    race = factor(race, levels = c("Asian", "White", "Black or African American"))
+  ) -&gt;
+*earn_clean
+```
+]
+ 
+.panel2-clean-data-auto[
+
+]
+
+&lt;style&gt;
+.panel1-clean-data-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-clean-data-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-clean-data-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Customization Basics
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_bw()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_01_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_dark()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_classic()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_calc()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_clean()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_05_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_economist()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_06_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_few()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_07_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_gdocs()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_08_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_hc()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_09_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_pander()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_10_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_solarized()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_11_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_solarized(light = FALSE)
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_12_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_tufte()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_13_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_wsj()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_14_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_fivethirtyeight()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_15_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_excel()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_16_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-base-plot-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_minimal()
+```
+]
+ 
+.panel2-base-plot-rotate[
+![](plots/base-plot_rotate_17_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-base-plot-rotate {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-base-plot-rotate {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-base-plot-rotate {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_brewer()
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_01_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_brewer(palette = "Greens")
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_brewer(palette = "Set1")
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_brewer(palette = "Spectral")
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_brewer(palette = "Dark2")
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_05_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_viridis_d()
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_06_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_viridis_d(option = "plasma")
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_07_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_viridis_d(option = "inferno")
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_08_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_viridis_d(option = "magma")
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_09_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_viridis_d(option = "magma", end = .75)
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_10_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-change-color-rotate[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9"))
+```
+]
+ 
+.panel2-change-color-rotate[
+![](plots/change-color_rotate_11_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-change-color-rotate {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-change-color-rotate {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-change-color-rotate {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+---
+class: center, inverse, middle
+
+# Even MORE customization
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+*ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race))
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_01_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+* geom_ribbon()
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+* theme_minimal()
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+* scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9"))
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+* labs(
+*   title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+*   x = "",
+*   y = "",
+*   caption = "Source: BLS Earnings Data"
+* )
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_05_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+* theme(legend.position = "none")
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_06_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+* theme(axis.text.x = element_blank())
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_07_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+* theme(axis.text.y = element_blank())
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_08_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+* theme(plot.title = element_markdown())
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_09_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+  theme(plot.title = element_markdown()) +
+* theme(panel.grid.minor = element_blank())
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_10_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+  theme(plot.title = element_markdown()) +
+  theme(panel.grid.minor = element_blank()) +
+* theme(panel.grid.major.x = element_blank())
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_11_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+  theme(plot.title = element_markdown()) +
+  theme(panel.grid.minor = element_blank()) +
+  theme(panel.grid.major.x = element_blank()) +
+* theme(text = element_text(family = "serif"))
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_12_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+  theme(plot.title = element_markdown()) +
+  theme(panel.grid.minor = element_blank()) +
+  theme(panel.grid.major.x = element_blank()) +
+  theme(text = element_text(family = "serif")) +
+* annotate("errorbar", x = "2009",  ymin = -5000, ymax = 5000, col = "darkgray")
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_13_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+  theme(plot.title = element_markdown()) +
+  theme(panel.grid.minor = element_blank()) +
+  theme(panel.grid.major.x = element_blank()) +
+  theme(text = element_text(family = "serif")) +
+  annotate("errorbar", x = "2009",  ymin = -5000, ymax = 5000, col = "darkgray") +
+* annotate("text", x = "2002", y = 0, label = "$10K", col = "darkgray", angle = 90, family = "serif")
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_14_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+  theme(plot.title = element_markdown()) +
+  theme(panel.grid.minor = element_blank()) +
+  theme(panel.grid.major.x = element_blank()) +
+  theme(text = element_text(family = "serif")) +
+  annotate("errorbar", x = "2009",  ymin = -5000, ymax = 5000, col = "darkgray") +
+  annotate("text", x = "2002", y = 0, label = "$10K", col = "darkgray", angle = 90, family = "serif") +
+* annotate("text", x = "2000", y = 0, label = "")
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_15_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+  theme(plot.title = element_markdown()) +
+  theme(panel.grid.minor = element_blank()) +
+  theme(panel.grid.major.x = element_blank()) +
+  theme(text = element_text(family = "serif")) +
+  annotate("errorbar", x = "2009",  ymin = -5000, ymax = 5000, col = "darkgray") +
+  annotate("text", x = "2002", y = 0, label = "$10K", col = "darkgray", angle = 90, family = "serif") +
+  annotate("text", x = "2000", y = 0, label = "") +
+* annotate("text", x = "2010-Q2", y = -10500, label = "2010", col = "darkgray", family = "serif")
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_16_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+
+.panel1-even-more-auto[
+
+```r
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) +
+  geom_ribbon() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) +
+  labs(
+    title = "The gender wage gap persists across &lt;span style='color:#73434B;'&gt;**Asian**&lt;/span&gt;, &lt;span style='color:#2F3659;'&gt;**White**&lt;/span&gt;, and &lt;span style='color:#96ACD9;'&gt;**Black**&lt;/span&gt; Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+  theme(plot.title = element_markdown()) +
+  theme(panel.grid.minor = element_blank()) +
+  theme(panel.grid.major.x = element_blank()) +
+  theme(text = element_text(family = "serif")) +
+  annotate("errorbar", x = "2009",  ymin = -5000, ymax = 5000, col = "darkgray") +
+  annotate("text", x = "2002", y = 0, label = "$10K", col = "darkgray", angle = 90, family = "serif") +
+  annotate("text", x = "2000", y = 0, label = "") +
+  annotate("text", x = "2010-Q2", y = -10500, label = "2010", col = "darkgray", family = "serif") +
+* annotate("text", x = "2020-Q2", y = -10500, label = "2020", col = "darkgray", family = "serif")
+```
+]
+ 
+.panel2-even-more-auto[
+![](plots/even-more_auto_17_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-even-more-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-even-more-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-even-more-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

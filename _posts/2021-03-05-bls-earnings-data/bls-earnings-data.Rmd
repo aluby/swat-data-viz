@@ -1,0 +1,79 @@
+---
+title: "BLS Earnings Data"
+description: |
+  Visualizing the gender wage gap for #TidyTuesday -- includes a demo of customizing ggplots! 
+author:
+  - name: Amanda Luby
+    affiliation: Swarthmore College
+    url: {www.swarthmore.edu/NatSci/aluby1}
+date: 03-05-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options(knitr.duplicate.label = "allow")
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = F, error = F)
+library(tidyverse)
+library(ggtext)
+library(flipbookr)
+library(ggthemes)
+library(extrafont)
+earn <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-02-23/earn.csv')
+
+```
+
+# The Graph
+
+```{r}
+earn %>%
+  mutate(median_yearly = median_weekly_earn * 52) %>%
+  filter(race != "All Races") %>%
+  filter(sex != "Both Sexes") %>%
+  group_by(race, sex, year, quarter) %>%
+  summarize(
+    median_salary = median(median_yearly)
+  ) %>%
+  pivot_wider(id_cols = c("race", "year", "quarter"), names_from = sex, values_from = median_salary) %>%
+  group_by(race) %>%
+  mutate(
+    time = paste(year, quarter, sep = "-Q"),
+    men_dev = Men - (Men + Women)/2,
+    women_dev = Women - (Men + Women)/2,
+    race = factor(race, levels = c("Asian", "White", "Black or African American"))
+  ) %>%
+  ggplot(., aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) + 
+  geom_ribbon() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) + 
+  labs(
+    title = "The gender wage gap persists across <span style='color:#73434B;'>**Asian**</span>, <span style='color:#2F3659;'>**White**</span>, and <span style='color:#96ACD9;'>**Black**</span> Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) + 
+  theme_minimal() + 
+  theme(legend.position = "none",
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        plot.title = element_markdown(),
+        panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_blank(),
+        text = element_text(family = "Avenir")) +
+  annotate("errorbar", x = "2009",  ymin = -5000, ymax = 5000, col = "darkgray") + 
+  annotate("text", x = "2002", y = 0, label = "$10K", col = "darkgray", angle = 90, family = "Avenir") + 
+  annotate("text", x = "2000", y = 0, label = "") + 
+  annotate("text", x = "2010-Q2", y = -10500, label = "2010", col = "darkgray", family = "Avenir") + 
+  annotate("text", x = "2020-Q2", y = -10500, label = "2020", col = "darkgray", family = "Avenir") 
+```
+
+# Code Walk through + Customization
+
+*Note:* For some of these themes, you'll need to install the `ggthemes` package. I also use the `fill` argument in my graph instead of `color`, and it can be hard to remember if you need to use `scale_fill_X` or `scale_color_X`! I also couldn't get the custom font (Avenir) to show up in the flipbook, so just used the "serif" option. 
+
+```{r embed-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(url = "bls-flipbook.html", ratio = "16:9")
+```
+

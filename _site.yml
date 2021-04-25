@@ -1,0 +1,12 @@
+name: "sdv-site"
+title: "Swat Data Viz"
+description: 
+output_dir: "_site"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Contributors"
+      href: contributors.html
+theme: sdv-theme.css
+output: distill::distill_article

@@ -1,0 +1,142 @@
+---
+title: "Customizing your ggplots"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+class: center, middle
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggtext)
+library(flipbookr)
+library(ggthemes)
+library(extrafont)
+knitr::opts_chunk$set(echo = TRUE, fig.path = "plots/", fig.width = 8, fig.height =5)
+
+employed <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-02-23/employed.csv')
+
+earn <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-02-23/earn.csv')
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#631919",
+  header_font_google = google_font("Amiri", "400"),
+  text_font_google   = google_font("Roboto Condensed", "400", "400i"),
+  code_font_google   = google_font("Roboto Mono")
+)
+```
+
+---
+`r chunk_reveal("clean-data")`
+
+
+```{r clean-data, include = FALSE}
+earn %>%
+  mutate(median_yearly = median_weekly_earn * 52) %>%
+  filter(race != "All Races") %>%
+  filter(sex != "Both Sexes") %>%
+  group_by(race, sex, year, quarter) %>%
+  summarize(
+    median_salary = median(median_yearly)
+  ) %>%
+  pivot_wider(id_cols = c("race", "year", "quarter"), names_from = sex, values_from = median_salary) %>%
+  group_by(race) %>%
+  mutate(
+    time = paste(year, quarter, sep = "-Q"),
+    men_dev = Men - (Men + Women)/2,
+    women_dev = Women - (Men + Women)/2,
+    race = factor(race, levels = c("Asian", "White", "Black or African American"))
+  ) ->
+earn_clean
+```
+
+---
+class: center, inverse, middle
+
+# Customization Basics
+
+---
+`r chunk_reveal("base-plot", break_type = "rotate")`
+
+```{r base-plot, include = FALSE, cache = TRUE}
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) + 
+  geom_ribbon() + 
+  theme_bw() + #ROTATE
+  theme_dark() + #ROTATE
+  theme_classic() + #ROTATE
+  theme_calc() + #ROTATE
+  theme_clean() + #ROTATE
+  theme_economist() + #ROTATE
+  theme_few() + #ROTATE
+  theme_gdocs() + #ROTATE
+  theme_hc() + #ROTATE
+  theme_pander() + #ROTATE
+  theme_solarized() + #ROTATE 
+  theme_solarized(light = FALSE) + #ROTATE
+  theme_tufte() + #ROTATE
+  theme_wsj() + #ROTATE
+  theme_fivethirtyeight() + #ROTATE
+  theme_excel() + #ROTATE
+  theme_minimal() #ROTATE
+```
+
+---
+`r chunk_reveal("change-color", break_type = "rotate")`
+```{r change-color, include = FALSE, cache = TRUE}
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) + 
+  geom_ribbon() + 
+  theme_minimal() + 
+  scale_fill_brewer() + #ROTATE
+  scale_fill_brewer(palette = "Greens") + #ROTATE
+  scale_fill_brewer(palette = "Set1") + #ROTATE
+  scale_fill_brewer(palette = "Spectral") + #ROTATE
+  scale_fill_brewer(palette = "Dark2") + #ROTATE
+  scale_fill_viridis_d() + #ROTATE
+  scale_fill_viridis_d(option = "plasma") + #ROTATE
+  scale_fill_viridis_d(option = "inferno") + #ROTATE
+  scale_fill_viridis_d(option = "magma") + #ROTATE
+  scale_fill_viridis_d(option = "magma", end = .75) + #ROTATE
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) #ROTATE
+```
+
+---
+class: center, inverse, middle
+
+# Even MORE customization
+
+---
+`r chunk_reveal("even-more")`
+
+```{r even-more, include = FALSE, cache = TRUE}
+ggplot(earn_clean, aes(x = time, ymin = women_dev, ymax = men_dev, fill = race, group = race)) + 
+  geom_ribbon() + 
+  theme_minimal() +
+  scale_fill_manual(values = c("#73434B", "#2F3659", "#96ACD9")) + 
+  labs(
+    title = "The gender wage gap persists across <span style='color:#73434B;'>**Asian**</span>, <span style='color:#2F3659;'>**White**</span>, and <span style='color:#96ACD9;'>**Black**</span> Americans",
+    x = "",
+    y = "",
+    caption = "Source: BLS Earnings Data"
+  ) + 
+  theme(legend.position = "none") + 
+  theme(axis.text.x = element_blank()) +
+  theme(axis.text.y = element_blank()) +
+  theme(plot.title = element_markdown()) +
+  theme(panel.grid.minor = element_blank()) +
+  theme(panel.grid.major.x = element_blank()) +
+  theme(text = element_text(family = "serif")) +
+  annotate("errorbar", x = "2009",  ymin = -5000, ymax = 5000, col = "darkgray") + 
+  annotate("text", x = "2002", y = 0, label = "$10K", col = "darkgray", angle = 90, family = "serif") + 
+  annotate("text", x = "2000", y = 0, label = "") + 
+  annotate("text", x = "2010-Q2", y = -10500, label = "2010", col = "darkgray", family = "serif") + 
+  annotate("text", x = "2020-Q2", y = -10500, label = "2020", col = "darkgray", family = "serif")
+```

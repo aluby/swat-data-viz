@@ -1,0 +1,34 @@
+---
+title: "Contributors"
+description: |
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+We are a group of students and faculty at Swarthmore College who regularly work on [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) and other data visualizations. For more information on how to join us, please reach out to Prof Amanda Luby! 
+
+# Spring 2021
+
+**Elizabeth Shin '22** | Neuroscience, Pre-Med
+
+Fun Fact: Aside from my academic interests in biomedical research and data visualization, I've picked up fencing and archery at Swarthmore! Feel free to check out my [LinkedIn](https://www.linkedin.com/in/eshin-2022/) and [GitHub](https://github.com/Eli2022)!
+
+**Tolga Atabas '23** | Mathematics, minor in Computer Science and Arabic
+
+**Quinn Basewitz '23** | Mathematics with Emphasis in Statistics, Computer Science
+
+Fun Fact: I'm on the field hockey and track teams at Swarthmore, along with being involved in Kehilah and Chorus! Lately, I've been enjoying cooking new vegetarian recipes!
+
+**Brooke Coneeny '23** | Mathematics with Emphasis in Statistics, Computer Science
+
+Fun Fact: I play on the varsity softball team here at Swarthmore and I am super interested in sports analytics, especially involving softball and baseball
+
+**Sherry Huang '23** | Mathematics with Emphasis in Statistics, minor in Computer Science
+
+**Sydney Levy '23** |
+
+**Atesh Camurdan '24** | Mathematics with Emphasis in Statistics, Computer Science
+
+Fun Fact: I am also taking Chinese and Music courses at Swat. I am an aspiring music composer, and will be attending the Atlantic Music Festival this summer as a composer!

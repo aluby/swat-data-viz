@@ -1,0 +1,11 @@
+---
+title: "About this blog"
+description: |
+  We are a group of students and faculty at Swarthmore College who regularly work on #TidyTuesday data visualizations
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+For more information on how to join us, please reach out to Prof Amanda Luby! 

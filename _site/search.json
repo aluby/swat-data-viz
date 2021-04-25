@@ -1,0 +1,27 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this blog",
+      "description": "We are a group of students and faculty at Swarthmore College who regularly work on #TidyTuesday data visualizations",
+      "author": [],
+      "contents": "\nFor more information on how to join us, please reach out to Prof Amanda Luby!\n\n\n\n",
+      "last_modified": "2021-04-25T11:07:10-04:00"
+    },
+    {
+      "path": "contributors.html",
+      "title": "Contributors",
+      "author": [],
+      "contents": "\nWe are a group of students and faculty at Swarthmore College who regularly work on #TidyTuesday and other data visualizations. For more information on how to join us, please reach out to Prof Amanda Luby!\nSpring 2021\nElizabeth Shin ’22 | Neuroscience, Pre-Med\nFun Fact: Aside from my academic interests in biomedical research and data visualization, I’ve picked up fencing and archery at Swarthmore! Feel free to check out my LinkedIn and GitHub!\nTolga Atabas ’23 | Mathematics, minor in Computer Science and Arabic\nQuinn Basewitz ’23 | Mathematics with Emphasis in Statistics, Computer Science\nFun Fact: I’m on the field hockey and track teams at Swarthmore, along with being involved in Kehilah and Chorus! Lately, I’ve been enjoying cooking new vegetarian recipes!\nBrooke Coneeny ’23 | Mathematics with Emphasis in Statistics, Computer Science\nFun Fact: I play on the varsity softball team here at Swarthmore and I am super interested in sports analytics, especially involving softball and baseball\nSherry Huang ’23 | Mathematics with Emphasis in Statistics, minor in Computer Science\nSydney Levy ’23 |\nAtesh Camurdan ’24 | Mathematics with Emphasis in Statistics, Computer Science\nFun Fact: I am also taking Chinese and Music courses at Swat. I am an aspiring music composer, and will be attending the Atlantic Music Festival this summer as a composer!\n\n\n\n",
+      "last_modified": "2021-04-25T11:07:12-04:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Swarthmore College Data Visualization Group",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-04-25T11:07:14-04:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}

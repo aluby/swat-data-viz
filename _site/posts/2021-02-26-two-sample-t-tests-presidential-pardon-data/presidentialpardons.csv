@@ -1,0 +1,45 @@
+name,year_presidency_began,pardons,years_in_presidency,party,og_party
+George Washington,1789,16,8,Independent,None
+John Adams,1797,20,4,Independent,Federalist
+Thomas Jefferson,1801,119,8,Independent,Democratic-Republican
+James Madison,1809,196,8,Independent,Democratic-Republican
+James Monroe,1817,419,8,Independent,Democratic-Republican
+John Quincy Adams,1825,183,4,Independent,Democratic-Republican
+Andrew Jackson,1829,386,8,Democrat,Democrat
+Martin Van Buren,1837,168,4,Democrat,Democrat
+William Henry Harrison,1841,0,4,Independent,Whig
+John Tyler,1841,209,4,Independent,Whig
+James K. Polk,1845,268,4,Democrat,Democrat
+Zachary Taylor,1849,38,1,Independent,Whig
+Millard Fillmore,1850,170,3,Independent,Whig
+Franklin Pierce,1853,142,4,Democrat,Democrat
+James Buchanon,1857,150,4,Democrat,Democrat
+Abraham Lincoln,1861,343,4,Republican,Republican
+Andrew Johnson,1865,654,4,Independent,National Union
+Ulysses S. Grant,1869,1332,8,Republican,Republican
+Rutherford B. Hayes,1877,893,4,Republican,Republican
+James A. Garfield,1881,0,0.5,Republican,Republican
+Chester A. Arthur,1881,337,3.5,Republican,Republican
+Grover Cleveland,1885,1107,8,Democrat,Democrat
+Benjamin Harrison,1889,613,4,Republican,Republican
+William McKinley,1897,918,4,Republican,Republican
+Theodore Roosevelt,1901,981,8,Republican,Republican
+William Taft,1909,758,4,Republican,Republican
+Woodrow Wilson,1913,2480,8,Democrat,Democrat
+Warren Harding,1921,800,1.5,Republican,Republican
+Calvin Coolidge,1923,1545,6.5,Republican,Republican
+Herbert Hoover,1929,1385,4,Republican,Republican
+Franklin D. Roosevelt,1933,3687,12,Democrat,Democrat
+Harry S. Truman,1945,2044,8,Democrat,Democrat
+Dwight D. Eisenhower,1953,1157,8,Republican,Republican
+John F. Kennedy,1961,575,2,Democrat,Democrat
+Lyndon B. Johnson,1963,1187,6,Democrat,Democrat
+Richard Nixon,1969,926,5.5,Republican,Republican
+Gerald Ford,1974,409,2.5,Republican,Republican
+Jimmy Carter,1977,566,4,Democrat,Democrat
+Ronald Reagan,1981,406,8,Republican,Republican
+George  H. W. Bush,1989,77,4,Republican,Republican
+Bill Clinton,1993,459,8,Democrat,Democrat
+George W. Bush,2001,200,8,Republican,Republican
+Barack Obama,2009,1927,8,Democrat,Democrat
+Donald Trump,2017,237,4,Republican,Republican

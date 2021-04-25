@@ -1,0 +1,6 @@
+---
+title: "Swarthmore College Data Visualization Group"
+site: distill::distill_website
+listing: posts
+---
+

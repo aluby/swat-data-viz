@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>California Forest Fires</title>
+  
+  <meta property="description" itemprop="description" content="A visual exploration of wildfires between 2013-2019."/>
+  
+  
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-01-28"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-01-28"/>
+  <meta name="article:author" content="Brooke Coneeny"/>
+  <meta name="article:author" content="Sydney Levy"/>
+  
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="California Forest Fires"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="A visual exploration of wildfires between 2013-2019."/>
+  <meta property="og:locale" content="en_US"/>
+  
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="California Forest Fires"/>
+  <meta property="twitter:description" content="A visual exploration of wildfires between 2013-2019."/>
+  
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["California Forest Fires"]},{"type":"character","attributes":{},"value":["A visual exploration of wildfires between 2013-2019. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Brooke Coneeny"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]},{"type":"character","attributes":{},"value":["Swarthmore College"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affililation"]}},"value":[{"type":"character","attributes":{},"value":["Sydney Levy"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]},{"type":"character","attributes":{},"value":["Swarthmore College"]}]}]},{"type":"character","attributes":{},"value":["01-28-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["california-forest-fires_files/anchor-4.2.2/anchor.min.js","california-forest-fires_files/bowser-1.9.3/bowser.min.js","california-forest-fires_files/crosstalk-1.1.1/css/crosstalk.css","california-forest-fires_files/crosstalk-1.1.1/js/crosstalk.js","california-forest-fires_files/crosstalk-1.1.1/js/crosstalk.js.map","california-forest-fires_files/crosstalk-1.1.1/js/crosstalk.min.js","california-forest-fires_files/crosstalk-1.1.1/js/crosstalk.min.js.map","california-forest-fires_files/distill-2.2.21/template.v2.js","california-forest-fires_files/figure-html5/barchart grid-1.png","california-forest-fires_files/figure-html5/gganimate-1.gif","california-forest-fires_files/figure-html5/map of wildfires-1.png","california-forest-fires_files/figure-html5/unnamed-chunk-2-1.png","california-forest-fires_files/htmlwidgets-1.5.3/htmlwidgets.js","california-forest-fires_files/jquery-3.5.1/jquery-AUTHORS.txt","california-forest-fires_files/jquery-3.5.1/jquery.js","california-forest-fires_files/jquery-3.5.1/jquery.min.js","california-forest-fires_files/jquery-3.5.1/jquery.min.map","california-forest-fires_files/leaflet-1.3.1/images/layers-2x.png","california-forest-fires_files/leaflet-1.3.1/images/layers.png","california-forest-fires_files/leaflet-1.3.1/images/marker-icon-2x.png","california-forest-fires_files/leaflet-1.3.1/images/marker-icon.png","california-forest-fires_files/leaflet-1.3.1/images/marker-shadow.png","california-forest-fires_files/leaflet-1.3.1/leaflet.css","california-forest-fires_files/leaflet-1.3.1/leaflet.js","california-forest-fires_files/leaflet-binding-2.0.4.1/leaflet.js","california-forest-fires_files/leafletfix-1.0.0/leafletfix.css","california-forest-fires_files/plotly-binding-4.9.3/plotly.js","california-forest-fires_files/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css","california-forest-fires_files/plotly-main-1.57.1/plotly-latest.min.js","california-forest-fires_files/popper-2.6.0/popper.min.js","california-forest-fires_files/proj4-2.6.2/proj4.min.js","california-forest-fires_files/Proj4Leaflet-1.0.1/proj4leaflet.js","california-forest-fires_files/rstudio_leaflet-1.3.1/images/1px.png","california-forest-fires_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css","california-forest-fires_files/tippy-6.2.7/tippy-bundle.umd.min.js","california-forest-fires_files/tippy-6.2.7/tippy-light-border.css","california-forest-fires_files/tippy-6.2.7/tippy.css","california-forest-fires_files/tippy-6.2.7/tippy.umd.min.js","california-forest-fires_files/typedarray-0.1/typedarray.min.js","california-forest-fires_files/webcomponents-2.0.0/webcomponents.js","CaliforniaFires.csv"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+  
+  <style type="text/css">
+  
+  body {
+    background-color: white;
+  }
+  
+  .pandoc-table {
+    width: 100%;
+  }
+  
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+  
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+  
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+  
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+  
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+  
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+  
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+  
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+  
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+  
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+  
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+  
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+  
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .shaded-content {
+    background: white;
+  }
+  
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+  
+  d-appendix {
+    padding-top: 30px;
+  }
+  
+  d-article>p>img {
+    width: 100%;
+  }
+  
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+  
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+  
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+  
+  /* Tweak code blocks */
+  
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+  
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+  
+  d-article div.sourceCode {
+    background-color: white;
+  }
+  
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+  
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  d-article pre a {
+    border-bottom: none;
+  }
+  
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+  
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+  
+  @media(min-width: 768px) {
+  
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+  
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+  
+  d-article pre {
+    font-size: 14px;
+  }
+  
+  }
+  
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  /* CSS for d-contents */
+  
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+  
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+  
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+  
+  .d-contents li {
+    list-style-type: none
+  }
+  
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+  
+  .d-contents ul {
+    padding-left: 1em
+  }
+  
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+  
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+  
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+  
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+  
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+  
+  
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+  
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+  
+  
+  /* Figure */
+  
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+  
+  .figure img {
+    width: 100%;
+  }
+  
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+  
+  /* Citations */
+  
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+  
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+  
+  /* Citation hover box */
+  
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+  
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+  
+  
+  /* Tweak 1000px media break to show more text */
+  
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+  
+    .grid {
+      grid-column-gap: 16px;
+    }
+  
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+  
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+  
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+  
+  
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+  
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* Include appendix styles here so they can be overridden */
+  
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+  
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+  
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+  
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+  
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+  
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+  
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  d-appendix > * {
+    grid-column: text;
+  }
+  
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+  
+  /* Include footnote styles here so they can be overridden */
+  
+  d-footnote-list {
+    contain: layout style;
+  }
+  
+  d-footnote-list > * {
+    grid-column: text;
+  }
+  
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+  
+  
+  
+  /* Anchor.js */
+  
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+  
+  /* Social footer */
+  
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+  
+  .disqus-comments {
+    margin-right: 30px;
+  }
+  
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  
+  #disqus_thread {
+    margin-top: 30px;
+  }
+  
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+  
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+  
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+  
+  
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+  
+  
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+  
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+  
+  /* Styles for posts lists (not auto-injected) */
+  
+  
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+  
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+  
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+  
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+  
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+  
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+  
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+  
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+  
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+  
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+  
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+  
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+  
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .posts-list img {
+    opacity: 1;
+  }
+  
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+  
+  .posts-more {
+    clear: both;
+  }
+  
+  
+  .posts-sidebar {
+    font-size: 16px;
+  }
+  
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+  
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+  
+  .categories li>a {
+    border-bottom: none;
+  }
+  
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+  
+  .categories .active {
+    font-weight: 600;
+  }
+  
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+  
+  
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+  
+  
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+  
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+  
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+  
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+  
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+  
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+  
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+  
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+  
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+  
+  
+  
+  </style>
+  
+  <script type="application/javascript">
+  
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+  
+  // show body when load is complete
+  function on_load_complete() {
+  
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+  
+  
+    // set body to visible
+    document.body.style.visibility = 'visible';
+  
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+  
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+  
+  function init_distill() {
+  
+    init_common();
+  
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+  
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+  
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+  
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+  
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+  
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+  
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+  
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+  
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+  
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+  
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+  
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+  
+      // capture layout
+      var layout = $(this).attr('data-layout');
+  
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+  
+  
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+  
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+  
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+  
+    // load distill framework
+    load_distill_framework();
+  
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+  
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+  
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+  
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+  
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+  
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+  
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+  
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+  
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+  
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+  
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+  
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+  
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+  
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+  
+      // clear polling timer
+      clearInterval(tid);
+  
+      // show body now that everything is ready
+      on_load_complete();
+    }
+  
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+  
+  }
+  
+  function init_downlevel() {
+  
+    init_common();
+  
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+  
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+  
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+  
+    // remove toc
+    $('.d-contents').remove();
+  
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+  
+  
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+  
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+  
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+  
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+  
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+  
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+  
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+  
+    $('body').addClass('downlevel');
+  
+    on_load_complete();
+  }
+  
+  
+  function init_common() {
+  
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+  
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+  
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+  
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+  
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+  
+      }
+    });
+  
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+  
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+  
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+  
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+  
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+  
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+  
+  </script>
+  
+  <!--/radix_placeholder_distill-->
+  <script src="california-forest-fires_files/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <script src="california-forest-fires_files/jquery-3.5.1/jquery.min.js"></script>
+  <link href="california-forest-fires_files/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+  <script src="california-forest-fires_files/leaflet-1.3.1/leaflet.js"></script>
+  <link href="california-forest-fires_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+  <script src="california-forest-fires_files/proj4-2.6.2/proj4.min.js"></script>
+  <script src="california-forest-fires_files/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+  <link href="california-forest-fires_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+  <script src="california-forest-fires_files/leaflet-binding-2.0.4.1/leaflet.js"></script>
+  <script src="california-forest-fires_files/plotly-binding-4.9.3/plotly.js"></script>
+  <script src="california-forest-fires_files/typedarray-0.1/typedarray.min.js"></script>
+  <link href="california-forest-fires_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="california-forest-fires_files/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <link href="california-forest-fires_files/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="california-forest-fires_files/plotly-main-1.57.1/plotly-latest.min.js"></script>
+  <script src="california-forest-fires_files/popper-2.6.0/popper.min.js"></script>
+  <link href="california-forest-fires_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="california-forest-fires_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="california-forest-fires_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="california-forest-fires_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="california-forest-fires_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="california-forest-fires_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="california-forest-fires_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"California Forest Fires","description":"A visual exploration of wildfires between 2013-2019.","authors":[{"author":"Brooke Coneeny","authorURL":{},"affiliation":"Swarthmore College","affiliationURL":"#","orcidID":""},{"author":"Sydney Levy","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-28T00:00:00.000+00:00","citationText":"Coneeny & Levy, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>California Forest Fires</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>A visual exploration of wildfires between 2013-2019.</p></p>
+</div>
+
+<div class="d-byline">
+  Brooke Coneeny true (Swarthmore College)
+  
+,   Sydney Levy true 
+  
+<br/>01-28-2021
+</div>
+
+<div class="d-article">
+<h3 id="introduction"><strong>Introduction</strong></h3>
+<div class="line-block">      California is home to some of the deadliest and most destructive wildfires in the world. Although every year the state experiences this misfortune, the 2020 California wildfire season set all time records. In fact, five out of the six largest fires in the state’s history were recorded during 2020 (Guardian). The damage caused by the wildfires extended far beyond the burning of millions of acres of trees. In addition to the environmental impact of the wildfires, living conditions became unbearable for many California residents. For some, the air quality was so poor that people could not even leave their homes without having to worry about smoke inhalation. Researchers have even been led to believe that the smoke and air quality led to hundreds of excess deaths in California cities (Guardian). Because of this recent and ongoing tragedy, we wanted to learn more about the history of wildfires in the great state of California.<br />
+      To dive deeper into California’s history of wildfires, we found a dataset that contains detailed records of wildfires that took place in California between 2013 and 2019. The dataset comes from the website Kaggle.com which serves as a platform to publish datasets and allows users to build and publish data models. While the original dataset contained observations for over 1,600 wildfires, we chose to simplify the dataset. We did so by removing all rows that did not have an observation for the number of crews involved in fighting the fire, resulting in 171 observations. Further, the original dataset included 40 different variables of study however we decided to focus on the 18 variables that would best allow us to analyze the social and environmental impact of the fires.<br />
+      The dataset includes the latitude, longitude, and county where each wildfire took place. We will use these variables to understand the role location plays in the amount of destruction caused by the wildfires. We also plan to study the impact that the fires play on individual’s lives through the number of injuries and fatalities that were caused by the fires as well as the number of structures that were damaged or destroyed. Further, the number of administrators on duty, personnel involved, fire crews involved, fire engines, helicopters and water tenders in the dataset will allow us to learn more about the resources that are required and supplied in order to fight the fires. We will also look to better understand the year to year differences between wildfires reported in California as well as the county to county differences. Finally, through analyzing the start and end dates of the wildfires as well as the number of acres burned, we will focus on the amount of damage done based on the duration of the fires.<br />
+      There is clearly lots of data to work with, however we will primarily focus on the location, damage caused, and resources required by the wildfires. We plan to create proportional symbol maps to analyze the geographic impact of the California wildfires throughout the state. By doing this, it will help draw attention to the areas that need support the most. A visualization of this type will also aid those who live in the state and show them what areas are most prone to wildfires. Additionally, scatterplots will allow us to highlight the correlation between the amount of resources provided to a wildfire and the fire’s duration. We will also compare the scatterplots by county, in order to investigate whether the counties with the highest amount of damage are receiving the most care. Further, boxplots will highlight the differences between the median durations of fires across the years in study, giving us a look into the trends across the state as a whole. Through this analysis we hope to deepen public understanding of the wildfires as the trends in damage caused by the wildfires has been progressing in recent years.<br />
+      While the 2020 wildfire season was the worst ever recorded, the numbers in the years prior have not been much better. The size and frequency of the wildfires have been gradually worsening in the years prior to 2020, ranking as some of the largest and most deadliest fires in the history of the state. Camp Fire is the deadliest wildfire recorded in the state of California, killing 85 people in 2018. Another fire which occurred in 2018, called the Mendocino Complex, was the second largest fire recorded in California’s history (LA Times). Both Camp Fire and Mendocino Complex are included in our dataset and analysis. It is important that our data set includes such historically significant fires such as these because it will allow us to better understand (and hopefully prevent) some of the most tragic wildfires in California history. However, in terms of visualization, because of large outliers such as the Mendocino Complex, it is harder to see the trends in the more common size fires. For this reason, in one of our preliminary data visualizations we scaled the x-axis (number of acres burned) using log base 10 so that the data is more spread out for running regressions and discovering trends.<br />
+      It’s no secret that one of the best ways to convey information is through visualizing it. Through representing the information in our dataset visually, we hope to bring the much necessary attention to California wildfires. Although it is an intimidating thought, California will have to face many more of these deadly wildfires in its future, and with the changing climate, the outlook is not great. Through studying wildfires in the recent past, we hope to bring to light information that could help guide how fires are managed in California for the future.<br />
+      The following code and graphics will all be completed using the data visualization software R Studios.</div>
+<h3 id="what-can-we-learn-from-geographical-trends"><strong>What can we learn from geographical trends?</strong></h3>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="california-forest-fires_files/figure-html5/map%20of%20wildfires-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div id="htmlwidget-764f071f54a2741f735f" style="width:624px;height:384px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-764f071f54a2741f735f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[37.978259,-119.417931],5.5,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[39.8134,-121.4347,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Camp Fire (2018)",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[40.65428,-122.6236,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Carr Fire (2018)",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[37.8651,-119.5383,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Yosemite National Park",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[38.7949,-120.3055,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"El Dorado National Forest",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[38.2353,-120.0036,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Stanislaus National Forest",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[37.3427,-119.2244,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Sierra National Forest",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[36.4864,-118.5658,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Sequoia National Park",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[36.4864,40.65428],"lng":[-122.6236,-118.5658]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="line-block">      The above graph shows the geographic locations of each of the wildfires in our dataset. The smallest fires are distinguished by both the smallest points and the largest fires (determined by the number of acres of land they burned) are shown with larger points.<br />
+      The graph highlights a few interesting findings. First, the fires with the greatest number of acres burned seem to occur in northern California. Although there are many noteworthy fires shown on the map, two in particular seem to stand out as outliers for their overwhelming number of acres burned. The largest fire, shown by the biggest yellow point, occurred in 2018 and is called the Carr Fire. The wildfire burned 229,651 acres in Redding California and killed 3 firefighters and 5 civilians. It destroyed 1,614 structures and damaged an additional 61 fires. The second largest wildfire, shown by the large, orange point and discussed above, is Camp Fire. Camp Fire, which occurred in 2018, burned 153, 336 acres in Butte County, California. At the time, Camp Fire was the deadliest and most destructive wildfire in California’s history. 85 people died as a result of Camp Fire and an additional 3 were injured by the fire. In order to contain Camp Fire, 1,065 firefighter personnel were involved. Both Camp Fire and Carr Fire are labeled on the interactive map above for reference.<br />
+      What’s especially interesting about Camp Fire and Carr Fire both occurring in northern California is that media attention often focuses predominantly on Southern California for having a high prevalence of especially destructive fires. According to the map, fires in Southern California (surrounding Los Angeles and San Diego) all appear to be between 10,000 and 50,000 acres burned. Since the size of the fires does not reflect the amount of media attention provided to the fires, it might suggest that there is something about the fires in Southern California that garners media attention. One possible explanation could be the proximity to urban populations. The large fires in northern California occurred predominantly in expansive nature parks or reserves where there could be fewer people at risk if the fire keeps spreading. However, with the large cluster of smaller fires around Los Angeles and San Diego, there could be a lot more people and homes in harm’s way should the fire not be contained in an extremely timely manner.<br />
+      In addition to the cluster of fires in southern California, there also appears to be a pattern in the location of the fires starting in northern California and ending east of San Jose. All of these fires seemed to have burned around 5,000 acres based on the size of the points in the map. The location of the fires seem to follow a diagonal line. The locations of the fires closely follow the locations of forest preserves and national parks on the eastern side of California. National parks such as Yosemite National Forest, Stanislaus National Forest, Sierra National Forest, and Sequoia National Park are all labeled on the interactive map above for reference.<br />
+      Overall, the map suggests that the fires with the largest destruction occur in northern California however fires in Southern California are very worrisome for their proximity to urban populations in Los Angeles and San Diego. Further, the diagonal line of fires on the eastern side of California closely follow the locations of national parks, which can be the host of more frequent smaller fires.<br />
+      In addition to focusing on the impact of the geographic location of the wildfires, we also want to explore how firefighting resources are utilized within California. The below plot highlights the relationship between the number of firefighting crews involved to contain the wildfire versus the number of acres burned by the fire. We chose to use a logarithmic (base 10) scale for the x-axis because without the logarithmic scale, a few extremely large fires meant that it was difficult to differentiate the smaller fires. However, since it can be difficult to convert between a log scale to understand the number of acres burned, we decided to create an interactive graph where one can hover over the point to see the number of acres burned (not using a log scale).</div>
+<h3 id="how-are-resources-utilized-within-california"><strong>How are resources utilized within California?</strong></h3>
+<div class="layout-chunk" data-layout="l-body">
+<div id="htmlwidget-78d43ff69f5263fae3d5" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-78d43ff69f5263fae3d5">{"x":{"data":[{"x":[4.38472965161983,4.30732485364537,4.0580082327154,3.90703495248342,3.84849701809037,3.84292112075998,3.63808972198451,3.63808972198451,3.54468802230268,3.50051091052634,3.4929000111087,3.44420098886416,3.3912880485953,3.23248786635299,3.10414555055401,2.85247999363686,2.72754125702856,2.60852603357719,2.48429983934679,2.47421626407626,2.41995574848976,2.33645973384853,2.29225607135648,2.27875360095283,2.09691001300806,2.07918124604762,1.96378782734556,1.95904139232109,1.90308998699194,1.8750612633917,1.8750612633917,1.84509804001426,1.70757017609794,1.66275783168157,4.51075942368019,4.11902482011478,3.62736585659273,3.62736585659273,3.33102217104183,3.29994290002277,3.18977095634687,3.16702179579026,3.13830269816628,2.83058866868514,2.80071707828239,2.78675142214556,2.76342799356294,2.71264970162721,2.58994960132571,2.50514997831991,2.39269695325967,2.33645973384853,2.05307844348342,1.95424250943932,1.8750612633917,1.79239168949825,1.49136169383427,4.84159720350668,3.84509804001426,3.84509804001426,3.68868672428412,3.62838893005031,3.38845645270027,3.02077548819356,3.01786771896351,2.96378782734556,2.93449845124357,2.82801506422398,2.82607480270083,2.55022835305509,2.32633586092875,2.3096301674259,2.19865708695442,2.17609125905568,2.04139268515822,2.03742649794062,2.03342375548695,1.97772360528885,1.93449845124357,1.8750612633917,1.85733249643127,1.60205999132796,1.57978359661681,1.55630250076729,1.39794000867204,1.38021124171161,1.32221929473392,1.30102999566398,1.25527250510331,4.55959544866406,3.90902085421116,3.75823040845775,3.65069597976061,3.46893780566546,3.41077723337721,3.35044185653506,3.03342375548695,2.92941892571429,2.77742682238931,2.64443858946784,2.55630250076729,2.33243845991561,1.92941892571429,1.81291335664286,1.65321251377534,1.47712125471966,1.41497334797082,4.56295866865462,4.45768513341264,4.01464652468403,3.9645895874899,3.78168358450735,3.7805333253164,3.58815961638309,3.35583449588494,3.21722065564452,2.99782308074573,2.79934054945358,2.59328606702046,2.53019969820308,2.35218251811136,2.13033376849501,2.11394335230684,2.05690485133647,1.86923171973098,1.84509804001426,1.69897000433602,1.34242268082221,1.23044892137827,5.36106834086449,5.36106834086449,5.18564412984375,4.68948644836425,4.68948644836425,4.68948644836425,4.57987501741115,3.45984464238821,3.33485568961729,3.10209052551184,2.91645394854993,2.50514997831991,2.17609125905568,1.79934054945358,1.70757017609794,1.63346845557959,1.51851393987789,1.17609125905568,1.11394335230684,3.004751155591,2.69372694892365,1.56820172406699,4.890745081649,4.01266853389633,3.99995656838019,3.94635399722627,3.66417170536193,3.40380661054742,3.28465628278852,2.87852179550121,2.77815125038364,2.72098574415374,2.7160033436348,2.6954816764902,2.35218251811136,2.34242268082221,2.30102999566398,1.99122607569249,1.72427586960079,1.44715803134222,1.30102999566398,1],"y":[47,63,30,12,56,53,29,29,8,36,8,33,33,2,54,20,29,25,4,3,4,11,24,6,9,10,4,6,2,15,13,2,5,18,1,7,1,1,22,13,4,8,4,2,10,6,82,14,29,2,3,4,11,12,5,2,1,6,6,6,39,4,26,3,20,2,2,4,2,1,3,5,11,13,1,2,3,14,6,1,5,2,4,2,2,2,2,10,2,21,30,2,1,12,3,4,2,4,3,10,6,14,3,4,5,1,2,28,21,14,13,18,4,8,4,17,14,1,1,19,23,10,10,1,2,4,4,4,1,5,5,11,58,58,58,6,20,4,12,4,1,12,4,7,9,4,2,3,10,5,4,2,8,17,53,8,2,0,9,8,6,8,0,16,8,8,9,2,2,1,2],"text":[" 24251"," 20292"," 11429","  8073","  7055","  6965","  4346","  4346","  3505","  3166","  3111","  2781","  2462","  1708","  1271","   712","   534","   406","   305","   298","   263","   217","   196","   190","   125","   120","    92","    91","    80","    75","    75","    70","    51","    46"," 32416"," 13153","  4240","  4240","  2143","  1995","  1548","  1469","  1375","   677","   632","   612","   580","   516","   389","   320","   247","   217","   113","    90","    75","    62","    31"," 69438","  7000","  7000","  4883","  4250","  2446","  1049","  1042","   920","   860","   673","   670","   355","   212","   204","   158","   150","   110","   109","   108","    95","    86","    75","    72","    40","    38","    36","    25","    24","    21","    20","    18"," 36274","  8110","  5731","  4474","  2944","  2575","  2241","  1080","   850","   599","   441","   360","   215","    85","    65","    45","    30","    26"," 36556"," 28687"," 10343","  9217","  6049","  6033","  3874","  2269","  1649","   995","   630","   392","   339","   225","   135","   130","   114","    74","    70","    50","    22","    17","229651","229651","153336"," 48920"," 48920"," 48920"," 38008","  2883","  2162","  1265","   825","   320","   150","    63","    51","    43","    33","    15","    13","  1011","   494","    37"," 77758"," 10296","  9999","  8838","  4615","  2534","  1926","   756","   600","   526","   520","   496","   225","   220","   200","    98","    53","    28","    20","    10"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,1.0552033967198,1.11040679343961,1.16561019015941,1.22081358687921,1.27601698359902,1.33122038031882,1.38642377703863,1.44162717375843,1.49683057047823,1.55203396719804,1.60723736391784,1.66244076063764,1.71764415735745,1.77284755407725,1.82805095079705,1.88325434751686,1.93845774423666,1.99366114095647,2.04886453767627,2.10406793439607,2.15927133111588,2.21447472783568,2.26967812455548,2.32488152127529,2.38008491799509,2.43528831471489,2.4904917114347,2.5456951081545,2.6008985048743,2.65610190159411,2.71130529831391,2.76650869503372,2.82171209175352,2.87691548847332,2.93211888519313,2.98732228191293,3.04252567863273,3.09772907535254,3.15293247207234,3.20813586879215,3.26333926551195,3.31854266223175,3.37374605895156,3.42894945567136,3.48415285239116,3.53935624911097,3.59455964583077,3.64976304255057,3.70496643927038,3.76016983599018,3.81537323270999,3.87057662942979,3.92578002614959,3.9809834228694,4.0361868195892,4.091390216309,4.14659361302881,4.20179700974861,4.25700040646841,4.31220380318822,4.36740719990802,4.42261059662783,4.47781399334763,4.53301739006743,4.58822078678724,4.64342418350704,4.69862758022684,4.75383097694665,4.80903437366645,4.86423777038625,4.91944116710606,4.97464456382586,5.02984796054566,5.08505135726547,5.14025475398527,5.19545815070508,5.25066154742488,5.30586494414468,5.36106834086449],"y":[0.648632087110212,1.02020790116609,1.38908137463516,1.75557254528455,2.1200014508814,2.48268812919285,2.84395261798602,3.20411495502804,3.56349517808605,3.92241332492719,4.28118943331857,4.64014354102734,4.99968558007045,5.36326489417578,5.7296029102771,6.09468924546492,6.45451351682974,6.80506534146206,7.15208240125403,7.52386208040513,7.91083082214744,8.29975535774548,8.67740241846378,9.03053873556689,9.34593104031935,9.61148460927021,9.83062136088774,10.0166280332753,10.1829064458631,10.3428584180813,10.5098857693603,10.6973903191301,10.8484727638682,10.9053630595287,10.9231760512226,10.9576860385402,11.0646673210715,11.297701785122,11.5982195731958,11.9208577722282,12.2705942431405,12.6524068468542,13.0712734442906,13.5321718963711,14.0400800640171,14.5999758081499,15.2327412744019,15.9510592462194,16.7239282749739,17.5196295065003,18.3064440866334,19.0526531612083,19.7265378760597,20.2963793770225,20.751092538261,21.149933048951,21.4995004184753,21.7998464313671,22.0510228721596,22.2530815253861,22.4060741755797,22.5100526072736,22.565068605001,22.5711739532952,22.5284204366894,22.4368598397167,22.2965439469103,22.1075245428036,21.8698534119295,21.5835823388215,21.2487631080126,20.8654475040361,20.4336873114252,19.9535343147131,19.425040298433,18.8482570471181,18.2232363453015,17.5500299775166,16.8286897282965,16.0592673821745],"text":"","type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(51,102,255,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":47.0004151100042,"r":7.30593607305936,"b":44.2175176421752,"l":39.6513075965131},"font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.9402241594022},"title":{"text":"Crews Involved v. Log of Acres Burned","font":{"color":"rgba(0,0,0,1)","family":"serif","size":19.1282689912827},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.781946582956776,5.57912175790771],"tickmode":"array","ticktext":["1","2","3","4","5"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["1","2","3","4","5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Log of Acres Burned","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.9402241594022}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.1,86.1],"tickmode":"array","ticktext":["0","20","40","60","80"],"tickvals":[0,20,40,60,80],"categoryorder":"array","categoryarray":["0","20","40","60","80"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Crews Involved","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.9402241594022}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"94b157d1803":{"text":{},"x":{},"y":{},"type":"scatter"},"94b47b377fa":{"x":{},"y":{}}},"cur_data":"94b157d1803","visdat":{"94b157d1803":["function (y) ","x"],"94b47b377fa":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="line-block">      The graph suggests that wildfires which burned less than 100 acres (labeled between 1 and 2 on the x-axis) required fewer than 20 firefighting crews to contain the fire. Similarly, fires which burned between 100 and 1,000 acres (shown between 2 and 3 on the x-axis) could be contained with less than 30 firefighting crews. Interestingly, there seems to be an outlier fire, which burned 580 acres but required over 80 firefighting crews. There also seems to be a sharp increase in the number of crews needed to contain fires which burn between 3,000 and 50,000 acres (between 3.5 and 4.5 on the x-axis).<br />
+      To further understand the trends in the number of crews needed to fight the fires, we added a Loess regression line to the data. The Loess regression is able to fit a smooth curve across the data points and is beneficial for understanding patterns that a linear regression could miss. What’s most intriguing about the Loess regression line within the graph is that it appears to increase at a nearly constant rate between 1 and 3 (or between 10 and 10,000 acres). However as wildfires burn over 10,000 acres there seems to be a steeper increase in the number of crews required.<br />
+      The regression line seems to suggest that fewer crews were provided to fight the two largest fires, which burned 153,336 and 229,651 acres. While we have analysed the geographic importance of these 2 fires above, this graph seems to suggest that there were not enough crews available to assist in fighting the fires. Possible explanations for the small number of crews fighting the largest fires could have to do with the timing of the fires. One possible explanation for this phenomenon is that the largest fire, which we will call the Carr Fire, began on July 23, 2018 and lasted for over 164 days. This means that Carr Fire was not extinguished until January 4, 2019. The second largest fire, known as Camp Fire began on November 8,2018 and lasted for 17 days. This means that there was an overlapping period where resources had to be split between the two fires. Further, since the Carr Fire lasted for over 164 days, there were probably many other fires occurring at the same time, which could have made it difficult to deploy enough crews to contain the fire in a timely manner.</div>
+<h3 id="how-does-the-duration-of-the-fires-change-year-to-year"><strong>How does the duration of the fires change year-to-year?</strong></h3>
+<div class="layout-chunk" data-layout="l-body">
+<div id="htmlwidget-a9b4c9536020458b2675" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a9b4c9536020458b2675">{"x":{"data":[{"x":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"y":[8.97847222222222,5.16319444444444,6.10416666666667,5.79027777777778,8.72222222222222,7.99166666666667,6.28819444444444,6.28819444444444,5.67430555555556,3.24444444444444,6.18194444444444,3.22569444444444,6.05763888888889,9.87708333333333,4.75763888888889,3.28125,2.64583333333333,4.48888888888889,1.18263888888889,0.257638888888889,3.2125,3.95833333333333,4.06041666666667,1.86875,2.17638888888889,2.2,2.94722222222222,1.16875,1.02569444444444,1.99305555555556,1.78125,2.02291666666667,1.27083333333333,1.87430555555556],"hoverinfo":"y","type":"box","fillcolor":"rgba(248,118,109,0.55)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"(2013,1)","legendgroup":"(2013,1)","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],"y":[24.6638888888889,13.4993055555556,8.11180555555556,8.11180555555556,5.39583333333333,8.09375,4.38472222222222,3.63472222222222,6.375,7.12291666666667,5.80555555555556,6.77430555555556,4.1,26.2166666666667,4.17986111111111,7.73541666666667,5.19305555555556,2.93888888888889,2.13958333333333,2.09444444444444,2.99027777777778,1.01180555555556,1.06111111111111],"hoverinfo":"y","type":"box","fillcolor":"rgba(196,154,0,0.55)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"(2014,1)","legendgroup":"(2014,1)","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],"y":[16.1152777777778,5.72777777777778,5.72777777777778,20.1340277777778,3.68541666666667,12.0013888888889,5.55416666666667,6.21875,6.90625,0.892361111111111,6.18819444444444,4.08333333333333,0.193055555555556,3.04513888888889,6.0625,3.94305555555556,2.41527777777778,0.0958333333333333,1.79652777777778,7.24444444444444,4.76319444444444,6.21180555555556,2.09027777777778,1.26180555555556,0.141666666666667,0.946527777777778,0.765277777777778,1.87083333333333,1,0.247222222222222,1.43958333333333,1.16388888888889],"hoverinfo":"y","type":"box","fillcolor":"rgba(83,180,0,0.55)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"(2015,1)","legendgroup":"(2015,1)","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],"y":[6.87569444444444,8.82083333333333,9.93333333333333,357.825,3.57569444444444,10.8104166666667,10.0763888888889,8.40277777777778,6.93263888888889,12.6194444444444,3.34375,-0.361111111111111,2.16666666666667,2.19097222222222,2.07430555555556,2.18958333333333,0.126388888888889,0.845138888888889],"hoverinfo":"y","type":"box","fillcolor":"rgba(0,192,148,0.55)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"(2016,1)","legendgroup":"(2016,1)","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5],"y":[133.179166666667,186.834722222222,235.870138888889,178.038888888889,43.9354166666667,185.871527777778,128.970138888889,186.961111111111,175.946527777778,119.265972222222,194.80625,131.881944444444,215.939583333333,190.903472222222,209.730555555556,130.354166666667,150.984722222222,184.8,175.945138888889,119.735416666667,210.009027777778,144.935416666667],"hoverinfo":"y","type":"box","fillcolor":"rgba(0,182,235,0.55)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"(2017,1)","legendgroup":"(2017,1)","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6],"y":[164.848611111111,164.848611111111,17.0604166666667,160.845138888889,160.845138888889,160.845138888889,182.891666666667,179.845833333333,146.682638888889,259.111805555556,181.8,165.854861111111,121.754166666667,167.841666666667,163.758333333333,168.902777777778,102.347222222222,263.213888888889,167.855555555556],"hoverinfo":"y","type":"box","fillcolor":"rgba(165,138,255,0.55)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"(2018,1)","legendgroup":"(2018,1)","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7],"y":[null,3.30902777777778,2.12439814814815,13.8979166666667,76.142650462963,5.87606481481482,8.23615740740741,null,11.1567476851852,10.0947222222222,null,4.24850694444444,1.08136574074074,null,6.1625,5.04513888888889,6.14861111111111,null,0.984722222222222,0.708333333333333,0.734027777777778,0.249305555555556,0.157164351851852],"hoverinfo":"y","type":"box","fillcolor":"rgba(251,97,215,0.55)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"},"size":5.66929133858268},"line":{"color":"rgba(51,51,51,1)","width":1.88976377952756},"name":"(2019,1)","legendgroup":"(2019,1)","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[0.642075458168983,0.8322200210765,1.30008824188262,0.787884734198451,0.92290385812521,0.633231240510941,0.838916376233101,0.956630400009453,0.729535315744579,1.29179515521973,0.988974606432021,1.02134095709771,1.21015492938459,0.690511777065694,0.714444035850465,0.854132950864732,0.788711276091635,1.21556070223451,0.740282986313105,1.08073584586382,1.36144951079041,0.977203256078064,0.724332563020289,0.626024384237826,1.08867387119681,1.33477597683668,0.797725326754153,0.861078451015055,1.04109164252877,0.979564731195569,1.08896597828716,1.1457721915096,1.25302675273269,0.969494347088039],"y":[8.97844281301342,5.16357029185941,6.10363137426683,5.79009563289971,8.72210979609957,7.99147989705774,6.28783304011553,6.28839871422,5.67405650997302,3.24408138044411,6.18237929271379,3.22523458584703,6.05771521558261,9.87743854610896,4.75799950628878,3.28119002872561,2.64580111226714,4.48918718244855,1.18303874650892,0.257809316076907,3.21291765152632,3.95813267926142,4.06083348722068,1.86880430976886,2.17641649835148,2.20052323186718,2.94746700928728,1.16922484873458,1.02554172191355,1.99291208705037,1.78087806751693,2.02301381496713,1.27123845988315,1.87425280330573],"text":[" 24251"," 20292"," 11429","  8073","  7055","  6965","  4346","  4346","  3505","  3166","  3111","  2781","  2462","  1708","  1271","   712","   534","   406","   305","   298","   263","   217","   196","   190","   125","   120","    92","    91","    80","    75","    75","    70","    51","    46"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"(2013,1)","legendgroup":"(2013,1)","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.15436032246798,2.142530589737,2.33111324384809,2.3440754307434,1.78861141242087,1.6338540604338,2.12820339854807,1.67430633604527,2.26492909993976,1.72142129410058,1.81199386734515,1.76882627420127,2.20971292182803,1.82011638097465,2.28854952771217,2.26790144499391,1.86259844135493,1.9699098451063,2.24741326998919,2.31188326068223,1.62030564621091,1.63724005147815,2.2243223529309],"y":[24.663628187988,13.4994316739354,8.11132095207615,8.11227844635309,5.39578858815392,8.09341726262459,4.38498188527534,3.63450377758618,6.37504889259218,7.12304515585795,5.80518823505457,6.77384207384687,4.09946980636412,26.2166605965022,4.17970935183112,7.73495013664502,5.19279752903773,2.93929920583291,2.13926504435199,2.094687443938,2.9907081314448,1.01190237226482,1.06061244679822],"text":[" 32416"," 13153","  4240","  4240","  2143","  1995","  1548","  1469","  1375","   677","   632","   612","   580","   516","   389","   320","   247","   217","   113","    90","    75","    62","    31"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(196,154,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(196,154,0,1)"}},"hoveron":"points","name":"(2014,1)","legendgroup":"(2014,1)","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.99033445231616,2.69760126695037,2.76858630012721,3.00640248432755,2.83032606653869,2.82891165167093,3.08790227361023,2.82562581337988,3.26619172673672,2.92500111758709,3.06343398001045,3.2131064735353,2.83649006057531,2.61629735082388,2.74248796887696,3.12075474914163,3.27291738204658,2.9408277336508,3.08034050744027,3.37605237290263,2.98176462464035,3.10654145106673,2.90085110608488,2.99010895881802,2.80163105688989,2.6366375759244,2.6958205608651,2.69128697831184,3.28683926165104,3.04035897236317,2.63306218124926,2.82523140255362],"y":[16.1151424315233,5.72790075578416,5.72795208412688,20.1343891956163,3.68586943689682,12.0019023414313,5.55468699884653,6.2190922107607,6.90622768952408,0.892101370208224,6.18789868914781,4.08324312611509,0.192813199019163,3.04499983766815,6.06243561452462,3.94268523354445,2.41561115670147,0.0963510200927138,1.79601734830558,7.24457306458822,4.76277144092575,6.21176541212274,2.09018768464551,1.26137155605713,0.14199770921298,0.946640584343372,0.765220147869032,1.87065756642544,0.999778532309509,0.247229172825141,1.43936686271905,1.16378938498001],"text":[" 69438","  7000","  7000","  4883","  4250","  2446","  1049","  1042","   920","   860","   673","   670","   355","   212","   204","   158","   150","   110","   109","   108","    95","    86","    75","    72","    40","    38","    36","    25","    24","    21","    20","    18"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(83,180,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(83,180,0,1)"}},"hoveron":"points","name":"(2015,1)","legendgroup":"(2015,1)","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.71412062384188,3.65050321035087,4.04849406182766,3.95533984396607,3.98706161845475,3.88506412804127,4.26843540892005,4.13848760370165,4.20068534724414,3.66277177724987,3.66276685446501,3.75881279334426,3.67855275068432,4.08466490712017,4.06970526371151,3.88990377560258,4.10721057765186,3.82859735935926],"y":[6.87533053306242,8.82119784708704,9.93378685052144,357.824788201178,3.57574139142719,10.8104268407654,10.0765016067815,8.40265418050578,6.93259535871058,12.619176510002,3.3439467655606,-0.361283217658185,2.16709772495191,2.19151625521093,2.07390851150965,2.19010553171781,0.126860766354172,0.845085482370471],"text":[" 36274","  8110","  5731","  4474","  2944","  2575","  2241","  1080","   850","   599","   441","   360","   215","    85","    65","    45","    30","    26"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,192,148,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,192,148,1)"}},"hoveron":"points","name":"(2016,1)","legendgroup":"(2016,1)","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5.10051585640758,5.31311909314245,4.86538822315633,4.63598681390286,5.17890252675861,4.86433988548815,5.33665283229202,5.14148371741176,5.14682859797031,4.92704229447991,4.93459869567305,5.28454268295318,4.66653057001531,5.1801087718457,5.23126905225217,4.91063791085035,4.63998866938055,5.32964583728462,4.83960778173059,5.05499373953789,5.09798529241234,5.0655664306134],"y":[133.17943515511,186.834731297428,235.870655357249,178.039436553822,43.9357287693308,185.871129901096,128.970337248891,186.961505379521,175.946609688708,119.265820582918,194.806329722426,131.882214681153,215.93934675474,190.903586780063,209.730423217807,130.354216685242,150.984740073782,184.800279856803,175.945595700429,119.735528950742,210.008934704494,144.935463704704],"text":[" 36556"," 28687"," 10343","  9217","  6049","  6033","  3874","  2269","  1649","   995","   630","   392","   339","   225","   135","   130","   114","    74","    70","    50","    22","    17"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,182,235,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,182,235,1)"}},"hoveron":"points","name":"(2017,1)","legendgroup":"(2017,1)","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5.62474604826421,5.95418905355036,6.30765482317656,6.34387507755309,6.04377416670322,6.21448915563524,6.00432045739144,5.7731085292995,5.94472601749003,5.86357840094715,5.66740977540612,5.80386301409453,5.66804139036685,5.90108878724277,6.16666944865137,5.89864852782339,6.32969146221876,6.11551268845797,5.80925829242915],"y":[164.848523312909,164.848825759228,17.0606719320624,160.845020467047,160.845338459866,160.845014143405,182.891788739859,179.845929110806,146.682421341039,259.111818187951,181.799956624005,165.855064188443,121.753921223751,167.841875480767,163.758013458614,168.902958330516,102.346766542045,263.214388316637,167.855418452797],"text":["229651","229651","153336"," 48920"," 48920"," 48920"," 38008","  2883","  2162","  1265","   825","   320","   150","    63","    51","    43","    33","    15","    13"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(165,138,255,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(165,138,255,1)"}},"hoveron":"points","name":"(2018,1)","legendgroup":"(2018,1)","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[7.0003750147298,6.65973991192877,6.97980554960668,7.38407772164792,6.8092661164701,7.1642182039097,6.77583172339946,7.03947429750115,6.93297922238708,6.85873173903674,7.20433570947498,6.66873259376734,7.25897131189704,6.85129331741482,7.00688507463783,6.85711190905422,6.92589370459318,6.99309058599174,6.70278328750283,6.63948142919689,6.97394713498652,7.26877176146954,6.75394705981016],"y":[null,3.30956838235595,2.12440572459492,13.8976907107951,76.1425330271188,5.87657902678354,8.23582532705446,null,11.1570622393949,10.0943397521122,null,4.24837079670746,1.08124302357918,null,6.16196664818433,5.04470877637181,6.14872932890249,null,0.985141309490686,0.708337735425577,0.733677188307047,0.249657179554666,0.156768582374961],"text":["  1011","   494","    37"," 77758"," 10296","  9999","  8838","  4615","  2534","  1926","   756","   600","   526","   520","   496","   225","   220","   200","    98","    53","    28","    20","    10"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(251,97,215,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(251,97,215,1)"}},"hoveron":"points","name":"(2019,1)","legendgroup":"(2019,1)","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":47.0004151100042,"r":7.30593607305936,"b":28.2772934827729,"l":46.027397260274},"font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.9402241594022},"title":{"text":"Calfornia Wildfire Duration by Year","font":{"color":"rgba(0,0,0,1)","family":"serif","size":19.1282689912827},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,7.6],"tickmode":"array","ticktext":["2013","2014","2015","2016","2017","2018","2019"],"tickvals":[1,2,3,4,5,6,7],"categoryorder":"array","categoryarray":["2013","2014","2015","2016","2017","2018","2019"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.9402241594022}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-18.2705973785411,375.734314160883],"tickmode":"array","ticktext":["0","100","200","300"],"tickvals":[0,100,200,300],"categoryorder":"array","categoryarray":["0","100","200","300"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Fire Duration (in days)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.9402241594022}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"94b38f3d430":{"fill":{},"alpha":{},"x":{},"y":{},"type":"box"},"94bfefb886":{"colour":{},"text":{},"x":{},"y":{}}},"cur_data":"94b38f3d430","visdat":{"94b38f3d430":["function (y) ","x"],"94bfefb886":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="line-block">      Now that we understand where the fires took place and how resources were being used to help, we wanted to explore how the duration of forest fires has changed over time. We chose to use a box-plot to represent this data because we believe it gives the best visualization of how long the majority of fires lasted, from the 25th to 75th percentiles, while also showing the outliers. The graph above specifically represents the range of fire durations in each given year from 2013 to 2019. We also chose to represent each fire with a dot over the box-plot in order to show how many fires the plots are accounting for. Further, by interacting with each point on the plot, one can see the number of acres burned by each fire. This way, one can also see the relationship between fire duration and acres burned by each wildfire.<br />
+      The graph above suggests that the duration of fires from 2013 to 2016 stayed pretty consistent, with all the fires lasting for less than 30 days. The one exception to this trend is a 2016 wildfire which lasted over 300 days and burned 4,474 acres in Fresno . This Fresno fire is denoted on the boxplot by the green dot at the top of the boxplot for 2016. It is interesting that the fire in Fresno had such a significantly longer duration, when it only burned half as many acres as the largest fire that year.<br />
+      It can also be seen from the graph that in 2017 and 2018 there was a large increase in the duration of most wildfires. What makes 2017 particularly interesting is that the fire duration increases so drastically from the earlier years but from 2013 to 2017 there was not a large increase in the amount of acres burned by the fires. However, fires from 2018 tell a completely different story. The wildfires in 2018 went down in history as some of the worst fires recorded in California’s history. With that being said, the inner-quartile range for fires in 2018 is much smaller than 2017. This suggests that there were a few historically large fires from 2018 but that the majority of the 2018 fires lasted between 150 and 190 days. In 2018 it seems to be that there were a few outliers in terms of extremely long fires but also outliers on the lower end of the spectrum in terms of their duration.<br />
+      Another interesting finding that can be gathered from the graph is that 2017 had the greatest amount of variation in terms of fire length. 2017 has the largest range for fire durations, with fires that were as short as 50 days and others as long as 230 days.The dots show us that the fires during 2017 were not very consistent, but varied quite greatly causing the large interquartile range that is seen on the plot. In contrast to this, 2018 had a slightly lower median duration length. However, although the median was smaller, the interquartile range is much smaller showing that the fires were consistently pretty bad during that time period. Therefore, although 2017 has a higher median and a large range, 2018 has a larger proportion of fires with consistent long durations, which is why it was recorded as a much more severe year than the previous.<br />
+      It can also be seen from this graph that 2019 did not have many fires with long durations, and in fact followed more closely to the trends seen between 2013 and 2016. While we cannot say for sure the reasoning behind the longer fire durations in 2017 and 2018, possible explanations could range from environmental factors such as the amount of rain from earlier in the year to the geographical locations of the fires or to the amount of resources that could be provided for the fires. What we can say for sure though is that there must have been something special about the conditions of the forests or the weather during 2017 and 2018 that made the fires that much worse than in the past.</div>
+<h3 id="how-does-the-number-of-crews-involved-with-the-fires-change-year-to-year"><strong>How does the number of crews involved with the fires change year-to-year?</strong></h3>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="california-forest-fires_files/figure-html5/gganimate-1.gif" /><!-- --></p>
+</div>
+<div class="line-block">      After taking a deep dive into the different durations of fires between 2013 and 2019, we wanted to see how the year-by-year changes in fire durations related to the number of crews that were involved fighting the fires. To best highlight the changes between each year, we decided to animate the graph and change the color of the points to represent different years.<br />
+      The graph suggests that in 2013, while the fires did not last long, there was a large spread in the number of crews that were required in order to contain the fires. The number of crews required in 2013 ranges from just a few crews to over 60, even though fire duration does not exceed 25 days. This suggests that in 2013, the duration of the fires was not a predictor for the number of firefighters needed to extinguish the fires.<br />
+      Then in 2014, the maximum fire duration is slightly higher than in 2013 but the majority of fires are still relatively short. All of the fires in 2014 lasted fewer than 50 days and required fewer than 30 crews except for a single outlier that required over 80 crews. Then, 2015 and 2016 follow a similar pattern to 2014. The majority of fires are short in their duration and do not require a large number of crews. All fires in 2015 required fewer than 40 crews and lasted fewer than 2015 days. Similarly, in 2016 (except for the outlier lasting over 300 days discussed above), all fires lasted fewer than 20 days and required no more than 40 crews. This suggests that the environmental factors and resources required to fight the fires between 2104 and 2016 were very similar.<br />
+      What’s particularly interesting about the Fresno fire in 2016 which lasted over 300 days is that there were very few crews allocated to the fire. This could mean that since the fire lasted so long, resources continuously needed to be diverted to other fires which could be contained more quickly.<br />
+      As predicted by the boxplot above, the durations of the fires in 2017 and 2018 were larger than the previous years. However, it’s interesting that even with their long duration, all of the fires in 2017 required fewer than 30 crews. 2018 follows a similar pattern to 2017. Regardless of fire duration, all but one fire in 2018, required fewer than 20 crews. The trends in 2017 and 2018 further support the notion that fire duration cannot predict the number of crews either required or allocated to fight the fires. One possible explanation for this is that firefighting resources are finite and thus there are not enough crews to be able to continually support large fires. It could be the case that firefighters prioritize fires by their location or it could be that the number of simultaneous fires impacts the amount of resources provided to each wildfire.</div>
+<h3 id="what-do-the-changes-in-the-number-of-injuries-personnel-involved-and-structures-damaged-tell-us-about-california-wildfires"><strong>What do the changes in the number of injuries, personnel involved, and structures damaged tell us about California wildfires?</strong></h3>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="california-forest-fires_files/figure-html5/barchart%20grid-1.png" width="960" /></p>
+</div>
+<div class="line-block">      Since we know now how fire duration varied over the years, we wanted to investigate the way the number of injuries, personnel involved, and structures damaged also varied over time. We chose to graph this data with bar charts since the values we are representing are counts. The y-axis across all three plots stays consistent in order to provide direct comparison between the three variables displayed on the x axises.<br />
+      Beginning with the first plot, “Number of Injuries by Year”, we can see that the number of injuries over time has been following an overall decreasing rate, starting from 2013 to 2019. This is very interesting because as we can see in the third plot, the number of structures damaged had an overall increasing pattern. There is no way to know from the data, but this leads us to believe that because more time and resources went to helping people, more structures were damaged as more injuries were avoided.<br />
+      Taking a deeper look into the third plot, “Structures Damaged by Year”, the number of structures damaged was consistently low from 2013-2016 but had a sudden massive increase in 2017 and has stayed relatively high ever since. The data shown in 2017 and 2018 relates back to the long duration times which were shown in the previous graph above. One can be led to believe that because the fires lasted longer, more structures were damaged as a result. However, 2019 did not burn a large amount of acres nor have long duration times which is why it is very intriguing that there were still lots of structures damaged during that time period.<br />
+      Plot two, “Number of Personnel Involved by Year”, was the most predictable out of the three plots based on our past analysis. The time period from 2014-2016 did not have many significant fires, which is why a large amount of personnel was not required to contain them. With the rise of fires in 2017 and 2018, it is sensible that the amount of personnel involved had to increase in order to combat them. The only peculiar part of this graph is the large amount of personnel that was called upon in 2013, for it surpasses 2018 which had a significantly greater amount of acres burned. Although there is no way to confirm this with the data, our hypothesis is that over time as technology advanced, less attendants were needed to contain the fires which is the reason for the sudden drop in personnel. However we now know that the forest fire season in California has only been worsening, and as it can be seen in plot three, the damages are not diminishing, therefore it is evident that although technology has improved, the need for personnel is still very much present.</div>
+<h3 id="discussion"><strong>Discussion:</strong></h3>
+<div class="line-block">      As we wrap up our project we want to highlight a few limitations to the conclusions we could draw from our analysis. First and foremost our conclusions were limited by our lack of formal knowledge about the environmental factors that cause wildfires. Many of the outliers in our visualizations could possibly be explained scientifically, such as abnormal fire duration length, however, we do not have the vast knowledge to make those claims.<br />
+      Further, the number of variables we could explore in our analysis was heavily limited by missing data. Many factors we wanted to explore such as fatalities, number of fire engines / water tenders used, as well as the number of structures damaged by the fires had a multitude of missing values so we could not conduct thorough analysis or create data visualizations with these variables. Unlike what one might suspect, we could not assume that a value of “NA” corresponded to 0 because there could have been unique factors about the wildfires with missing values. For example, it could be that whoever recorded the data for specific wildfires chose not to report certain variables (ex. fatalities). This could mean that a value of “NA” for a variable such as fatalities just means the count was not reported, not that a wildfire did not cause any fatalities. For this reason, we chose not to analyze variables with an extremely large amount of missing data but in the future we would love to conduct more robust analysis if the data is available.<br />
+      In future analysis we also would have loved to analyze wildfires which happened in 2020. As we have discussed, wildfires in 2020 broke records in California for the vast amount of destruction they caused. When it becomes available we would love to conduct further analysis including 2020 wildfire data in order to better understand possible trends and causes for such a dangerous year.<br />
+      In addition to including 2020 data, it would have been helpful if our dataset had included unique names for each fire. While we were able to look up names for some of the largest fires in our dataset, it would have been helpful to have some kind of unique identifier to draw further comparisons. These comparisons could include looking at the top 10 largest, most deadliest, or even longest-lasting fires.<br />
+      Finally, it would also be useful to have data on the smoke produced by each fire. This data would allow us to better understand the social and health impact of the wildfires in California. Over the past few years, many California residents have had to worry about smoke inhalation due to the immense amount produced in the air due to the wildfires. Further, smoke can travel a great distance not only throughout the state of California but also nearby states. Thus, it would be extremely relevant and significant to better understand the factors and predictors of immense smoke in future analysis.<br />
+      We hope you have enjoyed learning more about California wildfires through our project and we look forward to conducting further research on such an important topic.</div>
+<h3 id="sources"><strong>Sources:</strong></h3>
+<p><a href="https://www.theguardian.com/us-news/2020/dec/30/california-wildfires-north-complex-record" class="uri">https://www.theguardian.com/us-news/2020/dec/30/california-wildfires-north-complex-record</a></p>
+<p><a href="https://www.latimes.com/california/story/2020-09-11/six-of-californias-largest-fires-in-history-are-burning-right-now" class="uri">https://www.latimes.com/california/story/2020-09-11/six-of-californias-largest-fires-in-history-are-burning-right-now</a></p>
+<h3 id="appendix-code"><strong>Appendix: Code</strong></h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>knitr</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_chunk</a></span><span class='op'>$</span><span class='fu'>set</span><span class='op'>(</span>echo <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://plotly-r.com'>plotly</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://github.com/jrnold/ggthemes'>ggthemes</a></span><span class='op'>)</span>
+
+<span class='va'>final_project_theme</span> <span class='op'>=</span> <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>text <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>family <span class='op'>=</span> <span class='st'>"serif"</span>, size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,
+        axis.title <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span><span class='op'>)</span>,
+        plot.title.position <span class='op'>=</span> <span class='st'>"plot"</span><span class='op'>)</span>
+<span class='va'>fires</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"CaliforniaFires.csv"</span><span class='op'>)</span>
+
+<span class='co'># Map of Wildfires</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/dkahle/ggmap'>ggmap</a></span><span class='op'>)</span>
+
+<span class='va'>ca</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>left <span class='op'>=</span> <span class='op'>-</span><span class='fl'>129</span>, bottom <span class='op'>=</span> <span class='fl'>32</span>, right <span class='op'>=</span> <span class='op'>-</span><span class='fl'>114</span>, top <span class='op'>=</span> <span class='fl'>42.3</span><span class='op'>)</span> 
+<span class='va'>map</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/ggmap/man/get_stamenmap.html'>get_stamenmap</a></span><span class='op'>(</span><span class='va'>ca</span>, zoom <span class='op'>=</span> <span class='fl'>5</span>, maptype <span class='op'>=</span> <span class='st'>"toner-lite"</span><span class='op'>)</span> 
+
+<span class='fu'><a href='https://rdrr.io/pkg/ggmap/man/ggmap.html'>ggmap</a></span><span class='op'>(</span><span class='va'>map</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>fires</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Longitude</span>, y <span class='op'>=</span> <span class='va'>Latitude</span>, size <span class='op'>=</span> <span class='va'>AcresBurned</span><span class='op'>)</span>, 
+             alpha <span class='op'>=</span> <span class='fl'>0.5</span>, color <span class='op'>=</span> <span class='st'>"orange red"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>
+    title <span class='op'>=</span> <span class='st'>"Locations of California Wildfires"</span>,
+    size <span class='op'>=</span> <span class='st'>"Acres Burned (in thousands)"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_size_area</span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fl'>1000</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>10</span>, <span class='fl'>50</span>, <span class='fl'>100</span>, <span class='fl'>150</span>, <span class='fl'>200</span><span class='op'>)</span>,
+             labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"5"</span>, <span class='st'>"10"</span>,<span class='st'>"50"</span>, <span class='st'>"100"</span>,<span class='st'>"150"</span>,<span class='st'>"200"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_void</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>text <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>family <span class='op'>=</span> <span class='st'>"serif"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>fires_sorted_acres_burned</span> <span class='op'>&lt;-</span> <span class='va'>fires</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/order.html'>order</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>$</span><span class='va'>AcresBurned</span><span class='op'>)</span>,<span class='op'>]</span>
+<span class='co'>#Create leaflet map</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rstudio.github.io/leaflet/'>leaflet</a></span><span class='op'>)</span>
+
+<span class='va'>ca_leaflet_map</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/leaflet.html'>leaflet</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-methods.html'>setView</a></span><span class='op'>(</span>lat <span class='op'>=</span> <span class='fl'>37.978259</span>, lng <span class='op'>=</span> <span class='op'>-</span><span class='fl'>119.417931</span>, zoom <span class='op'>=</span> <span class='fl'>5.5</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addTiles</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addMarkers</a></span><span class='op'>(</span>lat <span class='op'>=</span> <span class='fl'>39.81340</span>, lng <span class='op'>=</span><span class='op'>-</span><span class='fl'>121.4347</span>  , popup <span class='op'>=</span> <span class='st'>"Camp Fire (2018)"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addMarkers</a></span><span class='op'>(</span>lat <span class='op'>=</span> <span class='fl'>40.65428</span>, lng <span class='op'>=</span><span class='op'>-</span><span class='fl'>122.6236</span>  , popup <span class='op'>=</span> <span class='st'>"Carr Fire (2018)"</span><span class='op'>)</span><span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addMarkers</a></span><span class='op'>(</span>lat <span class='op'>=</span> <span class='fl'>37.8651</span>, lng <span class='op'>=</span><span class='op'>-</span><span class='fl'>119.5383</span>  , popup <span class='op'>=</span> <span class='st'>"Yosemite National Park"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addMarkers</a></span><span class='op'>(</span>lat <span class='op'>=</span> <span class='fl'>38.7949</span>, lng <span class='op'>=</span><span class='op'>-</span><span class='fl'>120.3055</span>  , popup <span class='op'>=</span> <span class='st'>"El Dorado National Forest"</span><span class='op'>)</span><span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addMarkers</a></span><span class='op'>(</span>lat <span class='op'>=</span> <span class='fl'>38.2353</span>, lng <span class='op'>=</span><span class='op'>-</span><span class='fl'>120.0036</span>  , popup <span class='op'>=</span> <span class='st'>"Stanislaus National Forest"</span><span class='op'>)</span><span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addMarkers</a></span><span class='op'>(</span>lat <span class='op'>=</span> <span class='fl'>37.3427</span>, lng <span class='op'>=</span><span class='op'>-</span><span class='fl'>119.2244</span>  , popup <span class='op'>=</span> <span class='st'>"Sierra National Forest"</span><span class='op'>)</span><span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addMarkers</a></span><span class='op'>(</span>lat <span class='op'>=</span> <span class='fl'>36.4864</span>, lng <span class='op'>=</span><span class='op'>-</span><span class='fl'>118.5658</span>  , popup <span class='op'>=</span> <span class='st'>"Sequoia National Park"</span><span class='op'>)</span>
+
+<span class='va'>ca_leaflet_map</span>
+
+<span class='co'>#Acres Burned v. Crews Involved Scatterplot</span>
+<span class='va'>p0</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>fires</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log10</a></span><span class='op'>(</span><span class='va'>AcresBurned</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='va'>CrewsInvolved</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>text <span class='op'>=</span> <span class='va'>AcresBurned</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='va'>final_project_theme</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>
+    title <span class='op'>=</span> <span class='st'>"Crews Involved v. Log of Acres Burned"</span>, 
+    x <span class='op'>=</span> <span class='st'>"Log of Acres Burned"</span>,
+    y <span class='op'>=</span> <span class='st'>"Crews Involved"</span><span class='op'>)</span> 
+
+<span class='fu'><a href='https://docs.ropensci.org/plotly/reference/ggplotly.html'>ggplotly</a></span><span class='op'>(</span><span class='va'>p0</span>, tooltip <span class='op'>=</span> <span class='st'>"text"</span><span class='op'>)</span>
+<span class='co'>#Calculating Fire Duration &amp; Creating Boxplot</span>
+<span class='va'>fires</span><span class='op'>$</span><span class='va'>fire_duration</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/difftime.html'>difftime</a></span><span class='op'>(</span><span class='va'>fires</span><span class='op'>$</span><span class='va'>Extinguished</span>,<span class='va'>fires</span><span class='op'>$</span><span class='va'>Started</span>,units<span class='op'>=</span><span class='st'>'days'</span><span class='op'>)</span>
+
+<span class='va'>p1</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>fires</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>ArchiveYear</span><span class='op'>)</span>, group <span class='op'>=</span> <span class='va'>ArchiveYear</span>, 
+                               y <span class='op'>=</span> <span class='va'>fire_duration</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>geom_boxplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>ArchiveYear</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fl'>0.3</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='fu'>geom_jitter</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>ArchiveYear</span><span class='op'>)</span>, text <span class='op'>=</span> <span class='va'>AcresBurned</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='fu'>labs</span><span class='op'>(</span>
+          title <span class='op'>=</span> <span class='st'>"Calfornia Wildfire Duration by Year"</span>,
+          x <span class='op'>=</span> <span class='st'>""</span>,
+          y <span class='op'>=</span> <span class='st'>"Fire Duration (in days)"</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='va'>final_project_theme</span> <span class='op'>+</span>
+        <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> 
+
+<span class='fu'><a href='https://docs.ropensci.org/plotly/reference/ggplotly.html'>ggplotly</a></span><span class='op'>(</span><span class='va'>p1</span>, tooltip <span class='op'>=</span> <span class='st'>"text"</span><span class='op'>)</span>
+
+<span class='co'>#Create animated scatterplot Crews Involved v. Fire Duration</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://gganimate.com'>gganimate</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://www.rforge.net/png/'>png</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://gif.ski/'>gifski</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidyverse/glue'>glue</a></span><span class='op'>)</span>
+
+<span class='va'>anim1</span> <span class='op'>=</span> <span class='fu'>ggplot</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>fires</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>fire_duration</span>, y <span class='op'>=</span> <span class='va'>CrewsInvolved</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>ArchiveYear</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='va'>final_project_theme</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Fire Duration (in days)"</span>, y <span class='op'>=</span> <span class='st'>"Crews Involved"</span>, col <span class='op'>=</span> <span class='st'>"Year"</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span>,
+        legend.direction<span class='op'>=</span><span class='st'>'vertical'</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://gganimate.com/reference/transition_states.html'>transition_states</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>ArchiveYear</span><span class='op'>)</span>, transition_length <span class='op'>=</span> <span class='fl'>5</span>,
+                    state_length <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://gganimate.com/reference/enter_exit.html'>enter_fade</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://gganimate.com/reference/enter_exit.html'>exit_shrink</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>ggtitle</span><span class='op'>(</span><span class='st'>"Crews Involved v. Fire Duration by Year"</span>,
+          subtitle <span class='op'>=</span> <span class='st'>"Now showing {closest_state}"</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://gganimate.com/reference/animate.html'>animate</a></span><span class='op'>(</span><span class='va'>anim1</span>, nframes <span class='op'>=</span> <span class='fl'>100</span>, duration <span class='op'>=</span> <span class='fl'>21</span><span class='op'>)</span>
+<span class='co'>#Create 3 barcharts</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>gridExtra</span><span class='op'>)</span>
+
+<span class='va'>b1</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>fires</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Injuries</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>ArchiveYear</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_col</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>ArchiveYear</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='va'>final_project_theme</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>y <span class='op'>=</span> <span class='st'>""</span>, x <span class='op'>=</span> <span class='st'>"Injuries"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_brewer</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"YlOrRd"</span><span class='op'>)</span>
+  
+
+<span class='va'>b2</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>fires</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>StructuresDamaged</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>ArchiveYear</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+   <span class='fu'>geom_col</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>ArchiveYear</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='va'>final_project_theme</span> <span class='op'>+</span> 
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>y <span class='op'>=</span> <span class='st'>""</span>, x <span class='op'>=</span> <span class='st'>"Structures Damaged"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_brewer</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"YlOrRd"</span><span class='op'>)</span>
+
+
+<span class='va'>b3</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>fires</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>PersonnelInvolved</span>, y <span class='op'>=</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>ArchiveYear</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+   <span class='fu'>geom_col</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>ArchiveYear</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='va'>final_project_theme</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>y <span class='op'>=</span> <span class='st'>""</span>, x <span class='op'>=</span> <span class='st'>"Personnel Involved"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_brewer</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"YlOrRd"</span><span class='op'>)</span>
+
+<span class='co'># https://forcats.tidyverse.org/reference/fct_reorder.html</span>
+
+<span class='fu'><a href='https://rdrr.io/pkg/gridExtra/man/arrangeGrob.html'>grid.arrange</a></span><span class='op'>(</span><span class='va'>b1</span>, <span class='va'>b3</span>, <span class='va'>b2</span>, ncol<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
+
+<span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>fires</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>PersonnelInvolved</span>, y <span class='op'>=</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>ArchiveYear</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+   <span class='fu'>geom_col</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>ArchiveYear</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='va'>final_project_theme</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>y <span class='op'>=</span> <span class='st'>""</span>, x <span class='op'>=</span> <span class='st'>"Personnel Involved"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_fill_brewer</span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"YlOrRd"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="california-forest-fires_files/figure-html5/unnamed-chunk-2-1.png" width="624" data-distill-preview=1 /></p>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
